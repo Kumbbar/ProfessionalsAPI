@@ -1,0 +1,10 @@
+env/
+**/env/
+_trial_temp/
+.idea/
+**/__pycache__/
+__pycache__/
+**/.idea/
+.env
+.env
+enviroments/
