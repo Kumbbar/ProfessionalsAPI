@@ -45,6 +45,7 @@ class UpdatePersonsPositions(APIView):
                         continue
                     worker.skud_number = random_skud_number
                     worker.skud_direction = Person.IN
+                    roms_occupancy[random_skud_number] += 1
                     break
             else:
                 worker.skud_direction = Person.OUT
@@ -58,12 +59,12 @@ class UpdatePersonsPositions(APIView):
                 continue
             if client.skud_direction == Person.OUT:
                 while True:
-                    skud_number = random.choice(Person.WORKERS_ONLY_SKUD)
-                    if roms_occupancy[skud_number] >= 3:
+                    random_skud_number = random.choice(Person.WORKERS_ONLY_SKUD)
+                    if roms_occupancy[random_skud_number] >= 3:
                         continue
-                    client.skud_number = skud_number
+                    client.skud_number = random_skud_number
                     client.skud_direction = Person.IN
-                    roms_occupancy[skud_number] += 1
+                    roms_occupancy[random_skud_number] += 1
                     break
             else:
                 client.skud_direction = Person.OUT
