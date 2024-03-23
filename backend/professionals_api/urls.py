@@ -21,4 +21,4 @@ from . import settings
 
 urlpatterns = [
     path('', include('api.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(prefix=settings.STATIC_URL, document_root=settings.STATIC_ROOT)
