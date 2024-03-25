@@ -40,7 +40,7 @@ class UpdatePersonsPositions(APIView):
                 continue
             if worker.skud_direction == Person.OUT:
                 while True:
-                    random_skud_number = random.choice(Person.WORKERS_ONLY_SKUD)
+                    random_skud_number = random.choice(Person.ALL_SKUD)
                     if roms_occupancy[random_skud_number] >= 2:
                         continue
                     worker.skud_number = random_skud_number
