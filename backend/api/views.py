@@ -59,7 +59,7 @@ class UpdatePersonsPositions(APIView):
                 continue
             if client.skud_direction == Person.OUT:
                 while True:
-                    random_skud_number = random.choice(Person.CLIENTS_ONLY_SKU)
+                    random_skud_number = random.choice(Person.CLIENTS_ONLY_SKUD)
                     if roms_occupancy[random_skud_number] >= 3:
                         continue
                     client.skud_number = random_skud_number
