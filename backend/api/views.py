@@ -51,7 +51,7 @@ class UpdatePersonsPositions(APIView):
                 worker.skud_direction = Person.OUT
             worker.save()
 
-    def update_client_positions(self):
+    def update_clients_positions(self):
         all_clients: QuerySet[Person] = Person.objects.filter(role=Person.CLIENT)
         roms_occupancy = self.get_roms_occupancy(all_clients)
         for client in all_clients:
@@ -72,5 +72,5 @@ class UpdatePersonsPositions(APIView):
 
     def put(self, request):
         self.update_workers_positions()
-        self.update_client_positions()
+        self.update_clients_positions()
         return Response(status=status.HTTP_200_OK)
